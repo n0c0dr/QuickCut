@@ -1,20 +1,12 @@
+from sentence_transformers import SentenceTransformer, util
 from .utils.mongoconnection import MongoDBConnectionError as con
-import spacy
-nlp = spacy.load("en_core_web_md")
+# Load the model once
+model = SentenceTransformer("all-mpnet-base-v2")
 
-def normalize(text):
-    doc = nlp(text)
-    return " ".join(
-        token.lemma_.lower()
-        for token in doc
-        if not token.is_stop and not token.is_punct
-    )
-
-
-def similarity_check(phrase1, phrase2):
-    doc1 = nlp(normalize(phrase1))
-    doc2 = nlp(normalize(phrase2))
-    return doc1.similarity(doc2)
+def similarity_check(a: str, b: str) -> float:
+    emb1 = model.encode(a, convert_to_tensor=True)
+    emb2 = model.encode(b, convert_to_tensor=True)
+    return util.cos_sim(emb1, emb2).item()
 
 
 def find_and_delete_similar_articles(threshold=0.70):

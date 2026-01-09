@@ -1,5 +1,6 @@
 from .engine import get_category_trends
-from .similarityCheck import find_and_delete_similar_articles
+# from .similarityCheck import find_and_delete_similar_articles
+from .similarity_using_sentence_transformer import find_and_delete_similar_articles as st_find_and_delete_similar_articles
 
 if __name__ == "__main__":
     # print("\n🏏 SPORTS (India)")
@@ -15,5 +16,5 @@ if __name__ == "__main__":
     # print(get_category_trends("politics", region="state", state="kolkata"))
 
     # print(similarity_check("Apple releases new iPhone", "New iPhone launched by Apple"))
-    print("\nDeleted Articles IDs:")
-    print(find_and_delete_similar_articles(threshold=0.75))
+    # print(find_and_delete_similar_articles(threshold=0.75))
+    print(st_find_and_delete_similar_articles(threshold=0.90))
