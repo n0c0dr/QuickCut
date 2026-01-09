@@ -1,6 +1,6 @@
 import spacy
 
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_md")
 
 VALID_ENTITIES = {"PERSON", "ORG", "GPE", "EVENT", "PRODUCT"}
 
@@ -21,3 +21,4 @@ def extract_trends(texts):
                 phrases.append(chunk.text)
 
     return phrases
+
