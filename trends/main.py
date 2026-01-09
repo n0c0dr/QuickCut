@@ -6,8 +6,8 @@ if __name__ == "__main__":
     # print("\n🏏 SPORTS (India)")
     # print(get_category_trends("sports", region="india"))
 
-    # print("\n💹 STOCKS (India)")
-    # print(get_category_trends("stocks", region="india"))
+    print("\n💹 STOCKS (India)")
+    print(get_category_trends("stocks", region="india"))
 
     # print("\n🚀 SCIENCE (World)")
     # print(get_category_trends("science", region="world"))
@@ -18,3 +18,4 @@ if __name__ == "__main__":
     # print(similarity_check("Apple releases new iPhone", "New iPhone launched by Apple"))
     # print(find_and_delete_similar_articles(threshold=0.75))
     print(st_find_and_delete_similar_articles(threshold=0.90))
+
