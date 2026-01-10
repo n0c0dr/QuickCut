@@ -1,2 +1,4 @@
 ddgs
 spacy
+setence-transformers
+pymongo
